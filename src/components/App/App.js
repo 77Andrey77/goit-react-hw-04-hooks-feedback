@@ -50,10 +50,13 @@ export default function App() {
   const countTotalFeedback = () => {
     return good + neutral + bad;
   };
+
+  const total = countTotalFeedback();
+
   ///////////////////////////////////////////////////////////
   const countPositiveFeedbackPercentage = () => {
     // const { good } = this.state;
-    return Math.round((good / countTotalFeedback()) * 100) || 0;
+    return Math.round((good / total) * 100) || 0;
   };
   ///////////////////////////////////////////////////////////////
 
@@ -74,7 +77,7 @@ export default function App() {
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback}
+            total={total}
             positivePercentage={countPositiveFeedbackPercentage()}
           />
         ) : (
